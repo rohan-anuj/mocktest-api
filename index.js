@@ -32,6 +32,5 @@ app.get("/",async(req,res)=>{
 })
 
 
-const PORT=3000 || process.env.PORT
-
-app.listen(PORT,()=>console.log("db connected"))
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
