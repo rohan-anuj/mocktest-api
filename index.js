@@ -3,6 +3,7 @@ const app=express()
 const sqlite=require("sqlite")
 const sqlite3=require("sqlite3")
 const cors=require("cors")
+const User=require("./Routes/userRegistration")
 
 app.use(cors({
     origin:"*",
@@ -11,15 +12,9 @@ app.use(cors({
 
  app.use(express.json())
 
+ app.use("/user",User)
 
- 
 
-app.post("/",async (req,res)=>{
-    console.log(req.body)
-    const db=await sqlite.open({filename:"database.json",driver:sqlite3.Database})
-     const data=await (await db).run(`INSERT INTO user (email,password) VALUES (?,?)`,req.body.email,req.body.password)
-     data?res.status(200).json({message:data}):res.status(400).json("There's something wrong!")
-})
 app.get("/",async(req,res)=>{
     try{
     const db= await sqlite.open({filename:"database.json",driver:sqlite3.Database})
@@ -33,4 +28,4 @@ app.get("/",async(req,res)=>{
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT);
+app.listen(PORT)
