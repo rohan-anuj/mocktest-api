@@ -4,6 +4,7 @@ const sqlite=require("sqlite")
 const sqlite3=require("sqlite3")
 const cors=require("cors")
 const User=require("./Routes/userRegistration")
+const userlogged=require("./Routes/userLoged")
 
 app.use(cors({
     origin:"*",
@@ -13,6 +14,7 @@ app.use(cors({
  app.use(express.json())
 
  app.use("/user",User)
+ app.use("/userlog",userlogged)
 
 
 app.get("/",async(req,res)=>{
