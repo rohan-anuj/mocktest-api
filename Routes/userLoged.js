@@ -9,7 +9,7 @@ route.post("/",async(req,res)=>{
     const data=await (await db).get("select * from user where email=?",req.body.email)
 
     if(!data){
-        res.status(400).json("user doesn't exist!")
+        res.status(404).json("user doesn't exist!")
     }
     else{
     data.password===req.body.password?res.json({id:data.id}):res.status(400).json("user Unauthenticated")
