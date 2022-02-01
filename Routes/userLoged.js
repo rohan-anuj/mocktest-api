@@ -10,7 +10,7 @@ route.post("/",async(req,res)=>{
     console.log(req.body)
     const db=await sqlite.open({filename:"database.json",driver:sqlite3.Database})
     const data=await (await db).get("select * from user where email=?",req.body.email)
-    const token=await jwt.sign({email:req.body.email},process.env.key)
+    const token=await jwt.sign({email:req.body.email},process.env.key,{expiresIn:"1h"})
 
     if(!data){
         res.status(404).json("user doesn't exist!")
