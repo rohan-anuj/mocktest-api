@@ -6,6 +6,7 @@ const cors=require("cors")
 const User=require("./Routes/userRegistration")
 const userlogged=require("./Routes/userLoged")
 const userdelete=require("./Routes/userDelete")
+const userSign=require("./Routes/userSigned")
 
 app.use(cors({
     origin:"*",
@@ -17,6 +18,7 @@ app.use(cors({
  app.use("/user",User)
  app.use("/userlog",userlogged)
  app.use("/userdel",userdelete)
+ app.use("/userSign",userSign)
 
 
 app.get("/",async(req,res)=>{
