@@ -13,7 +13,7 @@ route.post("/",async(req,res)=>{
     else{
         await db.run("Insert into user (email,password) values (?,?)",req.body.email,req.body.password)
 
-        res.json("user registered Successfully!")
+        res.status(201).json("user registered Successfully!")
     }
 })
 
