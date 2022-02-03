@@ -23,6 +23,7 @@ app.use(cors({
 
 app.get("/",async(req,res)=>{
     try{
+
     const db= await sqlite.open({filename:"database.json",driver:sqlite3.Database})
      const result=await (await db).all("select * from user")
      result?res.json(result):res.status(400).json("No data collected !")
@@ -34,4 +35,4 @@ app.get("/",async(req,res)=>{
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT)
+app.listen(PORT,()=>console.log(PORT))

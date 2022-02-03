@@ -6,6 +6,7 @@ const route=express.Router()
 const jwt=require("jsonwebtoken")
 
 route.post("/",auth,async(req,res)=>{
+    console.log("hello")
     const db=await sqlite.open({filename:"database.json",driver:sqlite3.Database})
     const data=await jwt.verify(req.body.token,process.env.key)
 
