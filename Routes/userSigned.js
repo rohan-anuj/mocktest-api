@@ -16,8 +16,6 @@ const datas=await (await db).get("select * from  user where email=?",data.email)
 datas?res.json(datas):res.status(404).json("token invalid")
 
 
-
-
 })
 
 module.exports=route
