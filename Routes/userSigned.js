@@ -13,7 +13,7 @@ route.post("/",auth,async(req,res)=>{
 
 const datas=await (await db).get("select * from  user where email=?",data.email)
 
-datas?res.json({email:datas.email,id:datas.id,test:datas.test}):res.status(404).json("token invalid")
+datas?res.json(datas):res.status(404).json("token invalid")
 
 
 
