@@ -9,9 +9,48 @@ CREATE TABLE user(
     dtpscore INTEGER DEFAULT 0,
     excelscore INTEGER DEFAULT 0
 
-)
+);
+
+CREATE TABLE tallyqna(
+    Question TEXT,
+    rightans TEXT,
+    wrongans1 TEXT,
+    wrongans2 TEXT,
+    wrongans3 TEXT
+    
+);
+
+CREATE TABLE cccqna(
+    Question TEXT,
+    rightans TEXT,
+    wrongans1 TEXT,
+    wrongans2 TEXT,
+    wrongans3 TEXT
+    
+);
+ 
+CREATE TABLE dtpqna(
+    Question TEXT,
+    rightans TEXT,
+    wrongans1 TEXT,
+    wrongans2 TEXT,
+    wrongans3 TEXT
+);
+
+CREATE TABLE excelqna(
+    Question TEXT,
+    rightans TEXT,
+    wrongans1 TEXT,
+    wrongans2 TEXT,
+    wrongans3 TEXT
+);
+
 
 
 
 
 --Down
+
+
+
+

@@ -8,6 +8,8 @@ const userlogged=require("./Routes/userLoged")
 const userdelete=require("./Routes/userDelete")
 const userSign=require("./Routes/userSigned")
 
+const tally=require("./Routes/tallyQna")
+
 app.use(cors({
     origin:"*",
     methods:"GET,POST"
@@ -19,6 +21,26 @@ app.use(cors({
  app.use("/userlog",userlogged)
  app.use("/userdel",userdelete)
  app.use("/userSign",userSign)
+ app.use("/excel",tally)
+ app.get("/tallyqna",async(req,res)=>{
+    const db=await sqlite.open({filename:"database.json",driver:sqlite3.Database})
+    const result=await (await db).all("select * from tallyqna")
+    result?res.json(result):res.status(400).json("No data collected !")
+
+ })
+ app.get("/cccqna",async(req,res)=>{
+    const db=await sqlite.open({filename:"database.json",driver:sqlite3.Database})
+    const result=await (await db).all("select * from cccqna")
+    result?res.json(result):res.status(400).json("No data collected !")
+
+ })
+ app.get("/excelqna",async(req,res)=>{
+    const db=await sqlite.open({filename:"database.json",driver:sqlite3.Database})
+    const result=await (await db).all("select * from excelqna")
+    result?res.json(result):res.status(400).json("No data collected !")
+
+ })
+
 
 
 app.get("/",async(req,res)=>{
