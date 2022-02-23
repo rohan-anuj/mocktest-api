@@ -7,6 +7,7 @@ const User=require("./Routes/userRegistration")
 const userlogged=require("./Routes/userLoged")
 const userdelete=require("./Routes/userDelete")
 const userSign=require("./Routes/userSigned")
+const marks=require("./Routes/marksEntered")
 
 const tally=require("./Routes/tallyQna")
 
@@ -22,6 +23,7 @@ app.use(cors({
  app.use("/userdel",userdelete)
  app.use("/userSign",userSign)
  app.use("/excel",tally)
+ app.use("/marks",marks)
  app.get("/tallyqna",async(req,res)=>{
     const db=await sqlite.open({filename:"database.json",driver:sqlite3.Database})
     const result=await (await db).all("select * from tallyqna")
